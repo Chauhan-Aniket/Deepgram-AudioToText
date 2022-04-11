@@ -1,15 +1,17 @@
 from django.db import models
 import os
-from deepgram import settings
+from deepgram_app import settings
+
+
+def wrapper(user, filename):
+    file_upload_dir = os.path.join(settings.MEDIA_ROOT, '')
+    if os.path.exists(file_upload_dir):
+        import shutil
+        shutil.rmtree(file_upload_dir)
+    return os.path.join(file_upload_dir, filename)
 
 
 def path_file():
-    def wrapper(user, filename):
-        file_upload_dir = os.path.join(settings.MEDIA_ROOT, 'audio')
-        if os.path.exists(file_upload_dir):
-            import shutil
-            shutil.rmtree(file_upload_dir)
-        return os.path.join(file_upload_dir, filename)
     return wrapper
 
 
