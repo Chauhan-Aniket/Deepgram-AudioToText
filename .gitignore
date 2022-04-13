@@ -9,3 +9,5 @@ migrations
 __pycache__
 
 audio.json
+
+.env
