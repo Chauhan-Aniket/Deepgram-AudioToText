@@ -9,11 +9,16 @@
 </head>
 
 <body>
-  <form action="" method="post" enctype="multipart/form-data">
-    {% csrf_token %}
-    {{ form }}
-    <button type="submit">Upload</button>
-  </form>
+  {% if uploaded_file_url %}
+  <audio src="{{uploaded_file_url}}" controls>
+    Your browser does not support the audio element.
+  </audio>
+  {% endif %}
+
+  <script>
+    let audio = document.querySelector("audio").src
+    console.log(audio)
+  </script>
 </body>
 
 </html>
