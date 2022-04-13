@@ -14,8 +14,9 @@ class Migration(migrations.Migration):
         migrations.CreateModel(
             name='Audio_store',
             fields=[
-                ('id', models.BigAutoField(auto_created=True, primary_key=True, serialize=False, verbose_name='ID')),
-                ('record', models.FileField(upload_to='documents/')),
+                ('id', models.BigAutoField(auto_created=True,
+                 primary_key=True, serialize=False, verbose_name='ID')),
+                ('record', models.FileField(upload_to='audio/')),
             ],
             options={
                 'db_table': 'Audio_store',
