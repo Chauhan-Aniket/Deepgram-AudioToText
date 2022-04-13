@@ -19,7 +19,7 @@ def Audio_upload(request):
             fs = FileSystemStorage()
             uploaded_file_url = fs.url(myfile)
             print(uploaded_file_url)
-            return render(request, 'home.html', {
+            return render(request, 'audio.html', {
                 'uploaded_file_url': uploaded_file_url
             })
     else:
