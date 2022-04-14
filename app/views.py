@@ -45,7 +45,10 @@ async def main(PATH_TO_FILE):
     deepgram = Deepgram(DEEPGRAM_API_KEY)
     # open audio file
     audio = open('.{}'.format(PATH_TO_FILE), 'rb')
-    source = {'buffer': audio, 'mimetype': 'audio/mpeg'}
+    if MIMETYPE == 'audio/wav':
+        source = {'buffer': audio, 'mimetype': MIMETYPE}
+    else:
+        source = {'buffer': audio, 'mimetype': MIMETYPE}
     response = await deepgram.transcription.prerecorded(source, {'punctuate': True})
     # save it to json
     audio_json = open('./audio.json', 'w')
