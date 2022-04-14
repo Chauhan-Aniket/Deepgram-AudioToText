@@ -22,18 +22,22 @@ def Audio_upload(request):
             form.save()
             myfile = request.FILES['record']
             fs = FileSystemStorage()
-            uploaded_file_url = fs.url(myfile)
+            uploaded_file_url = fs.url(myfile).replace(
+                '%', '_').replace('20', '').replace(' ', '_')
             print(uploaded_file_url)
             asyncio.run(main(uploaded_file_url))
+            with open('./audio.json', 'r') as j:
+                contents = json.loads(j.read())
             return render(request, 'audio.html', {
-                'uploaded_file_url': uploaded_file_url
-            })
+                'uploaded_file_url': uploaded_file_url, 'audio_content': contents['results']['channels'][0]
+                ['alternatives'][0]['transcript']})
     else:
         form = AudioForm()
     return render(request, 'form.html', {'form': form})
 
 
 DEEPGRAM_API_KEY = env('DEEPGRAM_API')
+MIMETYPE = 'audio/mpeg'
 
 
 async def main(PATH_TO_FILE):
