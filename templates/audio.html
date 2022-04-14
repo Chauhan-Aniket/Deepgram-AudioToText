@@ -10,9 +10,17 @@
 
 <body>
   {% if uploaded_file_url %}
+  <h4>Audio :</h4>
   <audio src="{{uploaded_file_url}}" controls>
     Your browser does not support the audio element.
   </audio>
+  {% endif %}
+
+  {% if audio_content %}
+  <div class="audio-content">
+    <h4>Transcription :</h4>
+    <p>{{audio_content}}</p>
+  </div>
   {% endif %}
 
   <script>
