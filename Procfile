@@ -1,1 +1,1 @@
-web: gunicorn <core_package_name>.wsgi --log-file -
+web: gunicorn deepgram_app.wsgi --log-file -
