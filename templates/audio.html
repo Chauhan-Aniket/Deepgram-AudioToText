@@ -4,17 +4,17 @@
 
 {% block content %}
 
-{% if uploaded_file_url %}
+{% if uploaded_file %}
 <h4>Audio :</h4>
-<audio src="{{uploaded_file_url}}" controls>
+<audio src="{{uploaded_file.url}}" controls>
   Your browser does not support the audio element.
 </audio>
 {% endif %}
 
-{% if audio_content %}
-<div class="audio-content">
+{% if audio_contents %}
+<div class="audio-contents">
   <h4>Transcription :</h4>
-  <p>{{audio_content}}</p>
+  <p>{{audio_contents}}</p>
 </div>
 {% endif %}
 
