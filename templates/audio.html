@@ -1,32 +1,21 @@
-<!DOCTYPE html>
-<html lang="en">
+{% extends 'base.html' %}
 
-<head>
-  <meta charset="UTF-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Audio</title>
-</head>
+{% block title %} Audio {% endblock title %}
 
-<body>
-  {% if uploaded_file_url %}
-  <h4>Audio :</h4>
-  <audio src="{{uploaded_file_url}}" controls>
-    Your browser does not support the audio element.
-  </audio>
-  {% endif %}
+{% block content %}
 
-  {% if audio_content %}
-  <div class="audio-content">
-    <h4>Transcription :</h4>
-    <p>{{audio_content}}</p>
-  </div>
-  {% endif %}
+{% if uploaded_file_url %}
+<h4>Audio :</h4>
+<audio src="{{uploaded_file_url}}" controls>
+  Your browser does not support the audio element.
+</audio>
+{% endif %}
 
-  <script>
-    let audio = document.querySelector("audio").src
-    console.log(audio)
-  </script>
-</body>
+{% if audio_content %}
+<div class="audio-content">
+  <h4>Transcription :</h4>
+  <p>{{audio_content}}</p>
+</div>
+{% endif %}
 
-</html>
+{% endblock content %}
