@@ -8,5 +8,8 @@ from django.views.generic.base import RedirectView
 urlpatterns = [
     path("", HomePageView.as_view(), name="home"),
     path("form/", audio_upload, name="audio_upload"),
-    path('favicon.ico', RedirectView.as_view(url=static('favicon.ico')))
+    path(
+        "favicon.ico",
+        RedirectView.as_view(url=staticfiles_storage.url("favicon.ico")),
+    ),
 ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
