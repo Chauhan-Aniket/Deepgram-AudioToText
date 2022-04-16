@@ -84,8 +84,8 @@ WSGI_APPLICATION = 'deepgram_app.wsgi.application'
 
 DATABASES = {
     'default': {
-        'ENGINE': env('DATABASE_URL'),
-        'NAME': 'db',
+        'ENGINE': 'django.db.backends.sqlite3',
+        'NAME': BASE_DIR / 'db.sqlite3',
     }
 }
 
