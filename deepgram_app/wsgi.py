@@ -11,6 +11,6 @@ import os
 
 from django.core.wsgi import get_wsgi_application
 
-os.environ.setdefault('DJANGO_SETTINGS_MODULE', 'deepgram_app.settings.dev')
+os.environ.setdefault('DJANGO_SETTINGS_MODULE', 'deepgram_app.settings')
 
 application = get_wsgi_application()
