@@ -1,1 +1,1 @@
-web: gunicorn deepgram_app.wsgi --preload
+web: gunicorn deepgram_app.wsgi --log-file -
