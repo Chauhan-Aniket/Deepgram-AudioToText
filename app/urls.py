@@ -6,4 +6,4 @@ from .views import HomePageView, audio_upload
 urlpatterns = [
     path("", HomePageView.as_view(), name="home"),
     path("form/", audio_upload, name="audio_upload"),
-] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
+]
