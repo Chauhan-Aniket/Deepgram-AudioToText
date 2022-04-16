@@ -8,6 +8,8 @@ media
 migrations
 __pycache__
 
-audio.json
+*.json
 
 .env
+
+admin
