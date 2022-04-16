@@ -22,7 +22,3 @@ urlpatterns = [
     path('admin/', admin.site.urls),
     path("", include("app.urls")),
 ]
-
-if settings.DEBUG:  # new
-    urlpatterns += static(settings.MEDIA_URL,
-                          document_root=settings.MEDIA_ROOT)
