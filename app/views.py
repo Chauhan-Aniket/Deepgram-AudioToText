@@ -11,10 +11,6 @@ import asyncio
 import json
 
 
-class HomePageView(TemplateView):
-    template_name = "home.html"
-
-
 def audio_upload(request):
     uploaded_file = {}
     if request.method == 'POST':
@@ -34,7 +30,7 @@ def audio_upload(request):
             ['alternatives'][0]['transcript']})
     else:
         form = AudioForm()
-    return render(request, 'form.html', {'form': form})
+    return render(request, 'home.html', {'form': form})
 
 
 DEEPGRAM_API_KEY = env('DEEPGRAM_API')
