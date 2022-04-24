@@ -84,9 +84,20 @@ WSGI_APPLICATION = 'deepgram_app.wsgi.application'
 # https://docs.djangoproject.com/en/3.2/ref/settings/#databases
 
 DATABASES = {
-    'default': dj_database_url.config(
-        default=env('DATABASE_URL')
-    )
+    'default': {
+        'ENGINE': 'django.db.backends.postgresql_psycopg2',
+        'NAME': 'db9dmj8cvna5tl',
+        'USER': 'idcqlbfudpvigv',
+        'PASSWORD': '669d4b14a9a873824b566e42d0c557f1282c50bcbb41f759fd5dc31ae56ce050',
+        'HOST': 'ec2-3-218-171-44.compute-1.amazonaws.com',
+        'PORT': '5432'
+    }
+}
+DATABASES = {
+    'default': {
+        'ENGINE': 'django.db.backends.sqlite3',
+        'NAME': BASE_DIR / 'db.sqlite3',
+    }
 }
 
 
