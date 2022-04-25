@@ -19,7 +19,8 @@ def audio_upload(request):
             form.save()
             myfile = request.FILES['record']
             fs = FileSystemStorage()
-            uploaded_file['url'] = fs.url(myfile).replace(
+            file = fs.save(myfile.name, myfile)
+            uploaded_file['url'] = fs.url(file).replace(
                 '%', '_').replace('20', '').replace(' ', '_')
             print(uploaded_file)
             asyncio.run(main(uploaded_file['url']))
